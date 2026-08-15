@@ -167,6 +167,8 @@ a:hover { text-decoration: underline; }
 
 .sidebar-link .nav-icon { width: 18px; height: 18px; display: grid; place-items: center; font-size: 15px; }
 
+.nav-label-short { display: none; }
+
 .sidebar-footer { margin-top: auto; padding: 12px 10px; font-size: 12px; color: #64748b; }
 
 .main-area { flex: 1; overflow-y: auto; display: flex; flex-direction: column; }
@@ -610,6 +612,41 @@ textarea.mono, input.mono { font-family: 'Consolas', monospace; }
 @media (max-width: 860px) {
   .editor-sidebar, .editor-props { width: 100%; min-width: 100%; max-height: 240px; border: none; border-bottom: 1px solid var(--border); }
   .editor { flex-direction: column; }
-  .sidebar { width: 100%; min-width: 0; }
   .app-shell { flex-direction: column; }
+  .main-area { order: 1; }
+
+  /* Bottom navigation bar */
+  .sidebar {
+    order: 2;
+    width: 100%;
+    min-width: 0;
+    flex-direction: row;
+    align-items: center;
+    padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
+    overflow-x: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 -2px 12px rgba(15, 23, 42, 0.18);
+    z-index: 20;
+  }
+  .sidebar-brand, .sidebar-footer { display: none; }
+  .sidebar-nav {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-around;
+    gap: 4px;
+    margin-top: 0;
+    width: 100%;
+  }
+  .sidebar-link {
+    flex-direction: column;
+    gap: 3px;
+    padding: 7px 12px;
+    font-size: 10.5px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .sidebar-link.active { background: var(--primary); }
+  .sidebar-link .nav-icon { width: 20px; height: 20px; font-size: 17px; }
+  .nav-label-full { display: none; }
+  .nav-label-short { display: inline; font-size: 10px; font-weight: 600; }
 }

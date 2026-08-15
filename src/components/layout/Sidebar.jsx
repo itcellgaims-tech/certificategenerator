@@ -1,11 +1,11 @@
 import { NavLink } from 'react-router-dom'
 
 const NAV = [
-  { to: '/', label: 'Dashboard', icon: '▦', end: true },
-  { to: '/templates', label: 'Templates', icon: '▤' },
-  { to: '/assets', label: 'Assets', icon: '❏' },
-  { to: '/producer', label: 'Mass Producer', icon: '⚙' },
-  { to: '/certificates', label: 'Generated Certificates', icon: '📄' },
+  { to: '/', label: 'Dashboard', short: 'Home', icon: '▦', end: true },
+  { to: '/templates', label: 'Templates', short: 'Templates', icon: '▤' },
+  { to: '/assets', label: 'Assets', short: 'Assets', icon: '❏' },
+  { to: '/producer', label: 'Mass Producer', short: 'Mass', icon: '⚙' },
+  { to: '/certificates', label: 'Generated Certificates', short: 'History', icon: '📄' },
 ]
 
 export default function Sidebar() {
@@ -24,7 +24,8 @@ export default function Sidebar() {
             className={({ isActive }) => `sidebar-link${isActive ? ' active' : ''}`}
           >
             <span className="nav-icon">{item.icon}</span>
-            {item.label}
+            <span className="nav-label nav-label-full">{item.label}</span>
+            <span className="nav-label nav-label-short">{item.short}</span>
           </NavLink>
         ))}
       </nav>
